@@ -3,7 +3,7 @@
 #include <Windows.h>
 #include <ctime>
 #include <vector>
-#include "Student_Class.h"  
+#include "Student.h"  
 using namespace std;
 
 

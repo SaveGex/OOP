@@ -26,5 +26,8 @@
     <ClInclude Include="Student_Class.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="Student.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
