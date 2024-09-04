@@ -18,8 +18,8 @@ int main(){
 
     Student asd;
     
-    asd.setter_marks();
+    //asd.setter_marks();
 
-    
-    cout << "middle marks: " << asd.get_Aver();
+    //
+    //cout << "middle marks: " << asd.get_Aver();
 }
