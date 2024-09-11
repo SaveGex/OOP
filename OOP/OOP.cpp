@@ -34,12 +34,20 @@ private:
 public:
 	static int counter;
 
-	Person(uint16_t idet, const char* surname, const char* name, const char* middle_name, uint16_t year, uint16_t month, uint16_t day) : id{ idet }, data_of_name{ new char[sizeof(name) + 1], new char[sizeof(surname) + 1], new char[sizeof(middle_name) + 1] }, data_of_date{year, month, day} {
-		strcpy_s(data_of_name.name, sizeof(name), name);
-		strcpy_s(data_of_name.middle_name, sizeof(middle_name), middle_name);
-		strcpy_s(data_of_name.surname, sizeof(surname), surname);
+	Person(uint16_t idet, const char* surname, const char* name, const char* middle_name, uint16_t year, uint16_t month, uint16_t day)
+		: id{ idet }, data_of_date{ year, month, day }
+	{
+		// Виділяємо пам'ять для кожного рядка
+		data_of_name.name = new char[strlen(name) + 1];
+		data_of_name.surname = new char[strlen(surname) + 1];
+		data_of_name.middle_name = new char[strlen(middle_name) + 1];
 
-		cros_counter();
+		// Копіюємо рядки
+		strcpy_s(data_of_name.name, strlen(name) + 1, name);
+		strcpy_s(data_of_name.surname, strlen(surname) + 1, surname);
+		strcpy_s(data_of_name.middle_name, strlen(middle_name) + 1, middle_name);
+
+		cros_counter();  // Припустимо, що це якась функція
 	}
 
 	Person() : Person(0, nullptr, nullptr, nullptr, 0, 0, 0) {
