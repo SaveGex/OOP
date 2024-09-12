@@ -10,11 +10,11 @@
 
 using namespace std;
 
-const uint8_t ERROR_OPEN_DB = -1;
-const uint8_t ERROR_PREPARE_STMT = -2;
-const uint8_t ERROR_EXECUTE_STMT = -3;
-const uint8_t ERROR_CREAETE_DB = -4;
-const uint8_t ERROR_BIND_TEXT = -5;
+const int8_t ERROR_OPEN_DB = -1;
+const int8_t ERROR_PREPARE_STMT = -2;
+const int8_t ERROR_EXECUTE_STMT = -3;
+const int8_t ERROR_CREAETE_DB = -4;
+const int8_t ERROR_BIND_TEXT = -5;
 
 
 vector<Person> create_DB() {

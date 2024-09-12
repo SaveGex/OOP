@@ -69,8 +69,3 @@ void Person::print_all() {
 //Person::~Person() {
 //
 //}
-
-
-
-
-int Person::counter = 0;

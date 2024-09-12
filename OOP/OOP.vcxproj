@@ -136,9 +136,11 @@
     <ClCompile Include="SQLite.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Home.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="SQLite.h" />
     <ClInclude Include="sqlite\sqlite3.h" />
+    <ClInclude Include="TFlat.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

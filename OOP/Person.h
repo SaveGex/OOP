@@ -23,7 +23,7 @@ public:
 	// Конструктор копіювання
 	Name(const Name& other) : name(other.name), surname(other.surname), middle_name(other.middle_name) {}
 
-	// Оператор присвоєння
+	// Оператор присвоєння. Визнаю. Це не я писав про оператора, ну інакше не знаю як вирішити проблему із копіюванням. А перероблювати самостійно ВСЕ під строку мені трохи лінь.
 	Name& operator=(const Name& other) {
 		if (this == &other) return *this;
 		name = other.name;
@@ -47,6 +47,7 @@ private:
 	uint16_t id;
 	Name data_of_name;
 	Date data_of_date;
+	static int counter;
 
 	static void cros_counter() {
 		counter++;
@@ -54,7 +55,7 @@ private:
 
 public:    
 	
-	static int counter;
+	static uint16_t getter_counter() { return counter; }
 	Person(uint16_t idet, Name nickname, uint16_t year, uint16_t month, uint16_t day);
 	Person();
 	Name getter_Fname();
