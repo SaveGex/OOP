@@ -104,10 +104,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Opsik\source\repos\OOP\OOP\sqlite;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\Opsik\source\repos\OOP\OOP\sqlite;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sqlite3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -128,6 +132,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="OOP.cpp" />
+    <ClCompile Include="Person.cpp" />
+    <ClCompile Include="SQLite.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Person.h" />
+    <ClInclude Include="SQLite.h" />
+    <ClInclude Include="sqlite\sqlite3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
