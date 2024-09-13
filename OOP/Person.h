@@ -61,6 +61,9 @@ public:
 	Name getter_Fname();
 	uint16_t getter_id();
 	string getter_date();
+	uint8_t generete_age_for_person() {
+		return 8 + rand() % (60);
+	}
 	void setter_name(Name new_name);
 	void setter_date();
 	void print_all();

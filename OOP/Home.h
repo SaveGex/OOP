@@ -8,9 +8,9 @@
 
 using namespace std;
 
-class Home{
-private: 
-	
+class Home {
+private:
+
 	vector<vector<Flat>> entrances_array;
 	uint8_t floors;
 	uint8_t entrances;
@@ -22,7 +22,7 @@ private:
 	int count_recidents_at_entrance(int choose) {
 
 		int counter = 0;
-		vector<Flat> buffer_array{entrances_array[choose]};
+		vector<Flat> buffer_array{ entrances_array[choose] };
 
 		for (int i = 0; i < buffer_array.size(); i++) {
 
@@ -45,22 +45,19 @@ private:
 	}
 
 
-	vector<Flat>choose_entrance() const {
+	vector<Flat>choose_entrance() {
 
 		int choose;
-
-		cout << "\nTo choose from 1 till " << static_cast<int>(entrances) << " which entrance you want to check: \n";
-		cin >> choose;
-
-
-		while (choose < 1 and choose > entrances) {
-
-			cout << "\033[31m\nTo choose from 1 till " << static_cast<int>(entrances) << " which entrance you want to check: \n\033[0m";
+		//doesn't working
+		do {
+			cout << "\nTo choose from 1 till " << static_cast<int>(entrances) << " which entrance you want to check: \n";
 			cin >> choose;
 
-		}
+		} while (choose > entrances || choose < 1);
 
 		choose -= 1;
+
+		return entrances_array[choose];
 	}
 
 
@@ -68,15 +65,11 @@ private:
 
 		int choose_flat_val;
 
-		cout << "\nTo choose from 1 till " << flats_array.size() << " which flat you want to check: \n";
-		cin >> choose_flat_val;
-
-		while (choose_flat_val < 1 and choose_flat_val > flats_array.size() - 1) {
-
+		do {
 			cout << "\nTo choose from 1 till " << flats_array.size() << " which flat you want to check: \n";
 			cin >> choose_flat_val;
 
-		}
+		} while (choose_flat_val > flats_array.size() || choose_flat_val < 1);
 
 		choose_flat_val -= 1;
 
@@ -85,6 +78,22 @@ private:
 		return flat;
 	}
 
+
+	Person choose_person(Flat buffer_flat) {
+
+		int choose_person;
+
+		do {
+			cout << "\nTo choose from 1 till " << buffer_flat.getter_residents_array().size() << " which flat you want to check: \n";
+			cin >> choose_person;
+
+		} while (choose_person > buffer_flat.getter_residents_array().size() || choose_person < 1);
+
+		choose_person -= 1;
+		Person person{buffer_flat.getter_residents_array()[choose_person]};
+
+		return person;
+	}
 
 
 #pragma endregion
@@ -106,10 +115,9 @@ public:
 	void info_about_entrace() {
 
 		vector<Flat> flats_buffer_array{ choose_entrance()};
+		uint8_t position_el_flat_at_entraces_array = find(entrances_array.begin(), entrances_array.end(), flats_buffer_array) - entrances_array.begin();
 
-		uint8_t position_el_flat_at_entraces_array = static_cast<int>(find(entrances_array.begin(), entrances_array.end(), flats_buffer_array) - entrances_array.begin() + 1);
-
-		cout << "Info about " << static_cast<int>(position_el_flat_at_entraces_array) << " entrance\nAmount flats: " << flats_buffer_array.size() << "\nAmount recidents at this entrance" << count_recidents_at_entrance(static_cast<int>(position_el_flat_at_entraces_array)) << endl;
+		cout << "Info about " << static_cast<int>(position_el_flat_at_entraces_array) + 1 << " entrance\nAmount flats: " << flats_buffer_array.size() << "\nAmount recidents at this entrance: " << count_recidents_at_entrance(static_cast<int>(position_el_flat_at_entraces_array)) << endl;
 
 	}
 
@@ -127,44 +135,12 @@ public:
 
 
 	void info_about_person() {
-		int choose, choose_flat, choose_person;
 
-		cout << "\nTo choose from 1 till " << static_cast<int>(entrances) << " which entrance you want to check: \n";
-		cin >> choose;
-
-		while (choose < 1 and choose > static_cast<int>(entrances)) {
-
-			cout << "\nTo choose from 1 till " << static_cast<int>(entrances) << " which entrance you want to check: \n";
-			cin >> choose;
-
-		}
-
-		choose -= 1;
-
-		cout << "\nTo choose from 1 till " << entrances_array[choose].size() << " which flat you want to check: \n";
-		cin >> choose_flat;
-
-		while (choose_flat < 1 and choose_flat > entrances_array[choose].size() - 1) {
-
-			cout << "\nTo choose from 1 till " << entrances_array[choose].size() << " which flat you want to check: \n";
-			cin >> choose_flat;
-
-		}
-
-		choose_flat -= 1;
-
-		cout << "\nTo choose from 1 till " << entrances_array[choose][choose_flat].getter_residents_array().size() << " which person you want to check: \n";
-		cin >> choose_person;
-
-		while (choose_person < 1 and choose_person > entrances_array[choose][choose_flat].getter_residents_array().size() - 1) {
-
-			cout << "\nTo choose from 1 till " << entrances_array[choose][choose_flat].getter_residents_array().size() << " which person you want to check: \n";
-			cin >> choose_person;
-
-		}
-
-		choose_person -= 1;
-		cout << '\n' << entrances_array[choose][choose_flat].getter_residents_array()[choose_person].getter_Fname().surname << ' ' << entrances_array[choose][choose_flat].getter_residents_array()[choose_person].getter_Fname().name << ' ' << entrances_array[choose][choose_flat].getter_residents_array()[choose_person].getter_Fname().middle_name << endl;
+		vector<Flat> flats_buffer_array{ choose_entrance() };
+		Flat buffer_flat{ choose_flat(flats_buffer_array) };
+		Person buffer_person{ choose_person(buffer_flat) };
+		
+		cout << '\n' << buffer_person.getter_Fname().surname << ' ' << buffer_person.getter_Fname().name << ' ' << buffer_person.getter_Fname().middle_name << "\nAge: " << static_cast<int>(buffer_person.generete_age_for_person()) << endl;
 
 	}
 #pragma endregion

@@ -38,7 +38,7 @@ int main() {
 
 			for (uint8_t d = 0; d < number_of_flats_at_floors; d++) {
 
-				number_of_residents = rand() % 5;
+				number_of_residents = 1 + rand() % 5;
 				counter_for_free_people += number_of_residents;
 
 				vector <Person> residents;

@@ -18,10 +18,9 @@ public:
 
 	// Оператор порівняння == . Seem i already said... I don't know how to write operators equals
 	bool operator==(const Flat& other) const {
-		return number_flat == other.number_flat &&
-			number_of_residents == other.number_of_residents &&
-			residents == other.residents;
+		return this->number_flat == other.number_flat; // Приклад
 	}
+
 
 
 	static uint8_t getter_number_of_flat() { return  number_of_flat; }
