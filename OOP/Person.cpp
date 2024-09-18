@@ -9,7 +9,6 @@
 using namespace std;
 
 
-
 #pragma region Constructors
 Person::Person(uint16_t idet, Name nickname, uint16_t year, uint16_t month, uint16_t day) : id{ idet }, data_of_name(nickname), data_of_date{ year, month, day }{
 		cros_counter();

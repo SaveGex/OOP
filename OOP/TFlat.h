@@ -16,7 +16,7 @@ private:
 	static void cros_number_flat() { number_of_flat++; }
 public:
 
-	// Оператор порівняння == . Seem i already said... I don't know how to write operators equals
+	// Оператор порівняння == . Seem i already said... I don't know how to write the operators equals
 	bool operator==(const Flat& other) const {
 		return this->number_flat == other.number_flat; // Приклад
 	}
