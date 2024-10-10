@@ -61,6 +61,13 @@ int main() {
 	Home native_home{ entrances_array, floors, entrances, number_of_flats_at_floors };
 
 
+
+	Home obj2(std::move(native_home));
+	obj2.info_about_entrace();
+	/*native_home.info_about_entrace(); */ //My condition to start infinity cycle
+
+
+
 	while (true) {
 		int choose;
 		cout << "Write number if you want to \nInfo about home[1]\nInfo about entrances[2]\nInfo about flat[3]\nInfo about person[4]\n";
@@ -70,7 +77,7 @@ int main() {
 		case 2: native_home.info_about_entrace(); break;
 		case 3: native_home.info_about_flat(); break;
 		case 4: native_home.info_about_person(); break;
-		default: cout << "free people: " << people.size() - counter_for_free_people; return 1;
+		default: cout << "free people: " << people.size() - counter_for_free_people; return 0;
 		}
 	}
 

@@ -131,9 +131,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Home.cpp" />
     <ClCompile Include="OOP.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="SQLite.cpp" />
+    <ClCompile Include="TFlat.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Home.h" />

@@ -24,6 +24,12 @@
     <ClCompile Include="SQLite.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Home.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="TFlat.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Person.h">
@@ -32,13 +38,13 @@
     <ClInclude Include="sqlite\sqlite3.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="SQLite.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="TFlat.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Home.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="SQLite.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

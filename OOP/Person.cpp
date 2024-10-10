@@ -2,7 +2,6 @@
 #include <string>
 #include <cstring>
 
-
 #include "sqlite3.h"
 
 #include "Person.h"
